@@ -1,0 +1,19 @@
+aggiornamentoE:>aggiorna.
+
+aggiorna:-
+   print('Mi sto aggiornando...'),
+   compile('dati.pl'),
+   print('Aggiornato!'),
+   elabora.
+
+elabora:-
+    print('Sto elaborando!'),
+    persona(X), dati(N,C,X), print('Test psicologico su '), print(N), print(' '), print(C), print(' matricola '), print(X), print('... '), 
+    (ha(X,animali)-> Y is 4+0;
+     Y=0),
+    (namici(X,A),A>0-> R is Y+4;
+     R=Y),
+    (colorepreferito(X,C),C is giallo->F is R+2;
+    F=R),
+    print('Felice: '), print(F),print(' su 10.'),
+    messageA(ermes,send_message(testelaborato(F,X),psiche)).
