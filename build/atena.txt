@@ -1,0 +1,18 @@
+aggiornamentoE:>aggiorna.
+
+aggiorna:-
+   print('Mi sto aggiornando...'),
+   compile('dati.pl'),
+   compile('personale.pl'),
+   print('Aggiornato!'),
+   elabora.
+
+elabora:-
+    print('Sto elaborando!'),
+    persona(X), dati(N,C,X), print('Controllo le ore al pc di '), print(N), print(' '), print(C), print(' matricola '), print(X), print('... '),
+    orepc(X,O),
+    print(O), print(' ore '), 
+    (O>4-> S=0, print('sono troppe! ');
+     S=1, print('vanno bene. ')
+    ),
+    messageA(ermes,send_message(misuraelaborato(S,X),atena)).

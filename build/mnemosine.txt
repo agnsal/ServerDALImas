@@ -1,0 +1,17 @@
+aggiornamentoE:>aggiorna.
+
+aggiorna:-
+   print('Mi sto aggiornando...'),
+   compile('dati.pl'),
+   compile('personale.pl'),
+   print('Aggiornato!'),
+   elabora.
+
+elabora:-
+    print('Sto elaborando!'),
+    persona(X), dati(N,C,X), print('Controllo le mansioni di '), print(N), print(' '), print(C), print(' matricola '), print(X), print('... '),
+    print('Mansioni rilevate: '), 
+    (lavoro(L,X)-> print(L), print('. ');
+     L is 0, print(L)
+    ),
+    messageA(ermes,send_message(lavoroelaborato(L,X),mnemosine)).

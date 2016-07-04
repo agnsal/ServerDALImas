@@ -1,0 +1,73 @@
+:- use_module(library(system)).
+:- use_module(library(file_systems)).
+
+avviaE :> 
+      print('Ermes in attesa!'),
+      loop.
+
+loop:-
+  (file_exists('notifica.txt') -> sleep(0,2), modifica, avverti; loop).
+
+modifica:-
+   cancella,
+   scrivi.
+
+cancella:-
+   open('dati.pl',write,W),
+   write(W,''), close(W),
+   delete_file('notifica.txt').
+   
+scrivi:-
+        open('input.pl', read, Str), open('dati.pl',append,S), 
+        repeat,
+        read(Str,T),
+        print(T),
+        write(S,T), write(S,'. '),
+        (T == end_of_file -> close(Str),close(S)).
+
+avverti:- 
+    messageA(crono,send_message(aggiornamento,ermes)),
+    messageA(psiche,send_message(aggiornamento,ermes)),
+    messageA(atena,send_message(aggiornamento,ermes)),
+    messageA(mnemosine,send_message(aggiornamento,ermes)).
+
+tempoelaboratoE(T):>
+         print('crono ha elaborato il tempo: '),
+         print(T ),
+         print('. Invio dei dati al server!'),
+         open('risposta.php',append,A), write(A,'$t='), write(A,T), write(A,'; '), close(A),
+         open('c.txt',write,W), close(W),
+         verifica.
+
+lavoroelaboratoE(L,X):>
+         print('Per la matricola '), print(X), print(', mnemosine ha trovato le mansioni: '),
+         print(L ),
+         print('. Invio dei dati al server!'),
+         open('risposta.php',append,A), write(A,'$l_'), write(A,X), write(A,'="'), write(A,L), write(A,'"; '), close(A),
+         open('m.txt',write,W), close(W),
+         verifica.
+
+testelaboratoE(F,X):>
+         print('Per la matricola '), print(X), print(' psiche ha calcolato felicita pari a: '),
+         print(F),
+         print('. Invio dei dati al server!'),
+         open('risposta.php',append,A), write(A,'$f_'), write(A,X), write(A,'='), write(A,F), write(A,'; '), close(A),
+         open('p.txt',write,W), close(W),
+         verifica.
+
+misuraelaboratoE(S,X):>
+         print('Per la matricola '), print(X), print(' atena ritiene il suo atteggiamento al pc: '),
+         print(S),
+         print('. Invio dei dati al server!'),
+         open('risposta.php',append,A), write(A,'$s_'), write(A,X), write(A,'='), write(A,S), write(A,'; '), close(A),
+         open('a.txt',write,W), close(W),
+         verifica.
+
+verifica:-
+         (file_exists('a.txt'),file_exists('c.txt'),file_exists('m.txt'),file_exists('p.txt') -> print('FATTO!'), notifica).
+
+notifica:-
+        delete_file('a.txt'),delete_file('c.txt'),delete_file('m.txt'),delete_file('p.txt'),
+        open('notificaermes.txt',write,W), close(W),
+        loop.
+        
