@@ -1,7 +1,7 @@
 #exec 1>/dev/null # @echo off
 clear # cls
 #title "MAS"
-sicstus_home=/usr/local
+sicstus_home=/usr
 main_home=../..
 dali_home=../src
 conf_dir=conf
