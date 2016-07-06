@@ -28,11 +28,11 @@ done
 
 cp $build_home/*.txt work
 
-$ screen -X eval "$prolog -l $dali_home/active_server_wi.pl --goal \"go(3010,'server.txt').\"" & #start /B "" "%prolog%" -l "%dali_home%/active_server_wi.pl" --goal go(3010,'%daliH%/server.txt').
+screen -X eval "$prolog -l $dali_home/active_server_wi.pl --goal \"go(3010,'server.txt').\"" & #start /B "" "%prolog%" -l "%dali_home%/active_server_wi.pl" --goal go(3010,'%daliH%/server.txt').
 echo Server ready. Starting the MAS....
 $WAIT > /dev/null # %WAIT% >nul
 
-$ screen -X eval "$prolog -l $dali_home/active_user_wi.pl --goal utente." & # start /B "" "%prolog%" -l "%dali_home%/active_user_wi.pl" --goal utente.
+screen -X eval "$prolog -l $dali_home/active_user_wi.pl --goal utente." & # start /B "" "%prolog%" -l "%dali_home%/active_user_wi.pl" --goal utente.
 echo Launching agents instances...
 $WAIT > /dev/null # %WAIT% > nul
 
@@ -41,8 +41,8 @@ for agent_filename in $build_home/*
 do
 	agent_base="${agent_filename##*/}"
     echo "Agente: $agent_base"
-    $ screen -X eval "./conf/makeconf.sh $agent_base $dali_home" &
-    $ screen -X eval "./conf/startagent.sh $agent_base $prolog $dali_home" &
+    screen -X eval "./conf/makeconf.sh $agent_base $dali_home" &
+    screen -X eval "./conf/startagent.sh $agent_base $prolog $dali_home" &
     $WAIT > /dev/null # %WAIT% >nul
 done
 
