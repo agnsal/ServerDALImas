@@ -9,7 +9,7 @@ avviaE :>
       loop.
 
 loop:-
-  (file_exists('notifica.txt') -> sleep(0,2), modifica, avverti; loop).
+  (file_exists('notifica.txt') -> sleep(0.2), modifica, avverti; loop).
 
 modifica:-
    cancella,
