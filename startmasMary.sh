@@ -28,11 +28,11 @@ done
 
 cp $build_home/*.txt work
 
-echo 'avvio' & $prolog -l $dali_home/active_server_wi.pl --goal "go(3010,'server.txt')." & 
+echo 'avvio' & $prolog -l $dali_home/active_server_wi.pl --goal "go(3010,'server.txt')." > /dev/null & 
 echo Server ready. Starting the MAS.... &
 $WAIT > /dev/null # %WAIT% >nul &
 
-$prolog -l $dali_home/active_user_wi.pl --goal "utente." & 
+# $prolog -l $dali_home/active_user_wi.pl --goal "utente." & 
 
 echo Launching agents instances... &
 $WAIT > /dev/null # %WAIT% > nul &
@@ -42,8 +42,8 @@ for agent_filename in $build_home/*
 do
 	agent_base="${agent_filename##*/}"
     echo "Agente: $agent_base"
-    ./conf/makeconf.sh $agent_base $dali_home &
-    ./conf/startagent.sh $agent_base $prolog $dali_home &
+    ./conf/makeconf.sh $agent_base $dali_home
+    ./conf/startagent.sh $agent_base $prolog $dali_home > /dev/null &
     $WAIT > /dev/null # %WAIT% >nul &
 done
 
@@ -52,4 +52,3 @@ echo Press a key to shutdown the MAS
 read -p "$*"
 echo Halting the MAS...
 killall sicstus
-
