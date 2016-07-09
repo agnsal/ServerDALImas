@@ -40,9 +40,9 @@ $WAIT > /dev/null # %WAIT% > nul &
 # Launch agents
 for agent_filename in $build_home/*
 do
+     sleep(10)
 	agent_base="${agent_filename##*/}"
     echo "Agente: $agent_base"
-    sleep(10)
     ./conf/makeconf.sh $agent_base $dali_home
     ./conf/startagent.sh $agent_base $prolog $dali_home > /dev/null &
     $WAIT > /dev/null # %WAIT% >nul &
