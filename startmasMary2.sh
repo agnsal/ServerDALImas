@@ -42,12 +42,13 @@ for agent_filename in $build_home/*
 do
 	agent_base="${agent_filename##*/}"
     echo "Agente: $agent_base"
+    sleep(10)
     ./conf/makeconf.sh $agent_base $dali_home
     ./conf/startagent.sh $agent_base $prolog $dali_home > /dev/null &
     $WAIT > /dev/null # %WAIT% >nul &
 done
 
-sleep(120)
+sleep(150)
 
 echo MAS started.
 echo Press a key to shutdown the MAS
