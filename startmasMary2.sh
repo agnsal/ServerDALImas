@@ -45,7 +45,7 @@ do
     ./conf/makeconf.sh $agent_base $dali_home
     ./conf/startagent.sh $agent_base $prolog $dali_home > /dev/null &
     $WAIT > /dev/null # %WAIT% >nul &
-    sleep 10
+    sleep(10)
 done
 
 echo MAS started.
