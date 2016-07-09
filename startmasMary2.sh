@@ -44,7 +44,7 @@ do
     echo "Agente: $agent_base"
     ./conf/makeconf.sh $agent_base $dali_home
     ./conf/startagent.sh $agent_base $prolog $dali_home > /dev/null &
-    $WAIT > /dev/null && sleep(10) # %WAIT% >nul &
+    $WAIT > /dev/null # %WAIT% >nul &
 done
 
 sleep(150)
