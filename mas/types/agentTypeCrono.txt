@@ -7,4 +7,5 @@ aggiorna:-
    elabora.
 
 elabora:-
-    messageA(ermes,send_message(tempoelaborato(0, X),crono)).
+    X=0,
+    messageA(ermes,send_message(tempoelaborato(X, X),crono)).
