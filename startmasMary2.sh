@@ -44,8 +44,10 @@ do
     echo "Agente: $agent_base"
     ./conf/makeconf.sh $agent_base $dali_home
     ./conf/startagent.sh $agent_base $prolog $dali_home > /dev/null &
-    $WAIT > 10 # %WAIT% >nul &
+    $WAIT > 20 # %WAIT% >nul &
 done
+
+$WAIT > 150
 
 echo MAS started.
 echo Press a key to shutdown the MAS
