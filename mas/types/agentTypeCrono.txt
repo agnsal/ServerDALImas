@@ -7,5 +7,4 @@ aggiorna:-
    elabora.
 
 elabora:-
-    start(X,Ti), arrivo(X,Tf), Durata is Tf-Ti, print('Sto elaborando!'),
-    messageA(ermes,send_message(tempoelaborato(Durata, X),crono)).
+    messageA(ermes,send_message(tempoelaborato(0, X),crono)).
