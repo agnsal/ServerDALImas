@@ -11,6 +11,7 @@ helloE(X) :>
 
 finito:- contatore(4).
 finitoI :> 
+    retract(contatore(_)),
     print('Tutti gli agenti sono attivi!'),
     loop.
 
