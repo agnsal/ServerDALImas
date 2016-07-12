@@ -1,3 +1,16 @@
+:- dynamic state/1.
+:- assert(state(0)).
+
+hello :- state(0).
+helloI :> 
+    print('Saluto Ermes!'),
+    messageA(ermes,send_message(hello(psiche),psiche)).
+
+hiE :>
+    retract(state(0)),
+    assert(state(1)),
+    print('Ermes ha risalutato!').
+
 aggiornamentoE:>aggiorna.
 
 aggiorna:-
@@ -13,7 +26,7 @@ elabora:-
      Y=0),
     (namici(X,A),A>0-> R is Y+4;
      R=Y),
-    (colorepreferito(X,C),C==giallo->F is R+2;
+    (colorepreferito(X,C), C is giallo ->F is R+2;
     F=R),
     print('Felice: '), print(F),print(' su 10.'),
     messageA(ermes,send_message(testelaborato(F,X),psiche)).

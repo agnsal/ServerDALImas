@@ -1,8 +1,18 @@
 :- use_module(library(system)).
 :- use_module(library(file_systems)).
 
-avviato :- 1>0.
-avviatoI :> sleep(120),loop.
+:- dynamic contatore/1.
+:- assert(contatore(0)).
+
+helloE(X) :> 
+    messageA(X,send_message(hi,ermes)),
+    print(X), print(' ha salutato!'),
+    contatore(N),M is N+1,retract(contatore(_)),assert(contatore(M)).
+
+finito:- contatore(4).
+finitoI :> 
+    print('Tutti gli agenti sono attivi!'),
+    loop.
 
 avviaE :> 
       print('Ermes in attesa!'),
