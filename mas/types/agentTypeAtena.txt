@@ -1,3 +1,16 @@
+:- dynamic state/1.
+:- assert(state(0)).
+
+hello :- state(0).
+helloI :> 
+    print('Saluto Ermes!'),
+    messageA(ermes,send_message(hello(atena),atena)).
+
+hiE :>
+    retract(state(0)),
+    assert(state(1)),
+    print('Ermes ha risalutato!').
+
 aggiornamentoE:>aggiorna.
 
 aggiorna:-
