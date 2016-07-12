@@ -47,8 +47,6 @@ do
     $WAIT > /dev/null # %WAIT% >nul &
 done
 
-sleep 60
-
 echo MAS started.
 echo Press a key to shutdown the MAS
 read -p "$*"
