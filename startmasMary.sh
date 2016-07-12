@@ -40,13 +40,14 @@ $WAIT > /dev/null # %WAIT% > nul &
 # Launch agents
 for agent_filename in $build_home/*
 do
-    sleep 5 &&
     agent_base="${agent_filename##*/}"
     echo "Agente: $agent_base"
     ./conf/makeconf.sh $agent_base $dali_home
     ./conf/startagent.sh $agent_base $prolog $dali_home > /dev/null &
     $WAIT > /dev/null # %WAIT% >nul &
 done
+
+sleep 60
 
 echo MAS started.
 echo Press a key to shutdown the MAS
