@@ -16,7 +16,6 @@ aggiornamentoE:>aggiorna.
 aggiorna:-
    print('Mi sto aggiornando...'),
    compile('dati.pl'),
-   compile('personale.pl'),
    print('Aggiornato!'),
    elabora.
 
