@@ -49,7 +49,7 @@ tempoelaboratoE(T,X):>
          print('crono ha elaborato il tempo: '),
          print(T ),
          print('. Invio dei dati al server!'),
-         open('risposta.php',append,A), write(A,'$t='), write(A,T), write(A,'; '), close(A),
+         open('risposta.php',append,A), write(A,'$t_'),write(A,X), write(A,=), write(A,T), write(A,'; '), close(A),
          open('c.txt',write,W), close(W),
          verifica.
 
